@@ -284,7 +284,7 @@ int drvLAOS::Substitute( string &src, Point p )
 // Move to position (directly emitted)
 void drvLAOS::DoMoveTo(Point p)
 {
-    string s = "0 _x_ _y_\n";
+    string s = "0 _y_ _x_\n";
     Substitute(s, p);
     if (filter == 1) tc_out << s;
     if (filter == 2) tm_out << s;
@@ -307,14 +307,14 @@ void drvLAOS::LineTo(Point p)
 {
     if ( doMove )
     {
-        string s = "0 _x_ _y_\n";
+        string s = "0 _y_ _x_\n";
         Substitute(s, curPos);
         if (filter == 1) tc_out << s;
         if (filter == 2) tm_out << s;
         if (filter > 2) te_out << s;
         doMove = false;
     }
-    string str = "1 _x_ _y_\n";
+    string str = "1 _y_ _x_\n";
     Substitute(str, p);
     if (filter == 1) tc_out << str;
     if (filter == 2) tm_out << str;
