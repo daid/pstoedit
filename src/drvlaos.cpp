@@ -180,6 +180,7 @@ drvLAOS::~drvLAOS()
     te_out.close(); catFile(&te_outname);
     tm_out.close(); catFile(&tm_outname);
     tc_out.close(); catFile(&tc_outname);
+    outf << "0 0 0\n";
     outf << psfeatures["*Trailer"];
 }
 
